@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Itinerary · 13–19 May 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1612;--paper:#faf8f4;--muted:#8a8070;--border:#e8e0d0;
+  --kyoto:#3d6e52;--kyoto-bg:#eaf3ed;--kyoto-border:#b8d8c4;
+  --osaka:#b83226;--osaka-bg:#fdf0ee;--osaka-border:#f0b8b0;
+  --train:#1a5090;--train-bg:#eaf2ff;--train-border:#a8c8f0;
+  --gold:#b8820a;--gold-bg:#fef8e8;--gold-border:#f0d880;
+  --onsen:#8b4a7a;--onsen-bg:#fdf0fa;--onsen-border:#e0b0d8;
+  --snack:#b8620a;--snack-bg:#fff8ee;--snack-border:#f0c888;
+  --meal:#2a6a3a;--meal-bg:#f0faf4;--meal-border:#90d0a8;
+  --must:#b83226;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);font-size:13px;line-height:1.6;max-width:720px;margin:0 auto}
+
+/* HEADER */
+.header{background:var(--ink);color:#f0e8d8;padding:28px 20px 22px;text-align:center}
+.header h1{font-family:'Playfair Display',serif;font-size:24px;font-weight:400;letter-spacing:.05em;margin-bottom:6px}
+.header .sub{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#a09878;margin-bottom:18px}
+.hotel-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hpill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:8px 14px;text-align:left;min-width:200px}
+.hpill .hl{font-size:9px;color:#80c870;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+.hpill .hn{font-size:12px;color:#f0e8d8;font-weight:500;margin-bottom:2px}
+.hpill .hd{font-size:11px;color:#a09878}
+.hpill.osaka .hl{color:#f08878}
+
+/* TABS */
+.tabs{position:sticky;top:0;z-index:20;background:#fdfcf8;border-bottom:1px solid var(--border);display:flex;padding:0 16px;gap:2px}
+.tab{padding:10px 16px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;transition:all .15s}
+.tab.on{color:var(--ink);border-bottom-color:var(--ink)}
+
+/* PANELS */
+.panel{display:none}.panel.on{display:block}
+
+/* DAY CARDS */
+.day{margin:10px;border-radius:14px;border:1px solid var(--border);overflow:hidden;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.day.k{border-color:var(--kyoto-border)}
+.day.o{border-color:var(--osaka-border)}
+.day.s{border-color:var(--gold-border)}
+
+.dh{display:flex;align-items:center;gap:12px;padding:12px 16px;cursor:pointer;background:#fdfcf8;border-bottom:1px solid transparent;transition:background .15s;user-select:none}
+.dh:hover{background:#f8f4ee}
+.dh.open{border-bottom-color:var(--border)}
+
+.dbadge{font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:6px;white-space:nowrap;line-height:1.6;text-align:center;min-width:56px}
+.bk{background:var(--kyoto-bg);color:var(--kyoto);border:1px solid var(--kyoto-border)}
+.bo{background:var(--osaka-bg);color:var(--osaka);border:1px solid var(--osaka-border)}
+.bs{background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border)}
+.bd{background:#f5f4f0;color:#666;border:1px solid #ddd}
+
+.dtw{flex:1}
+.dt{font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:var(--ink);line-height:1.3}
+.ds{font-size:11px;color:var(--muted);margin-top:1px}
+.da{font-size:10px;color:#aaa;transition:transform .2s;flex-shrink:0}
+.da.open{transform:rotate(180deg)}
+
+.db{display:none;padding-bottom:14px}
+.db.open{display:block}
+
+/* DEPART BOX */
+.depart{margin:10px 12px 4px;padding:9px 12px;background:#1a1612;color:#f0e8d8;border-radius:8px;display:flex;align-items:flex-start;gap:10px}
+.depart .di{font-size:16px;flex-shrink:0}
+.depart .dt2{font-size:12px;font-weight:600;color:#f0e8d8;margin-bottom:2px}
+.depart .dd{font-size:11px;color:#a09878;line-height:1.5}
+
+/* SECTION LABELS */
+.sec{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 16px 5px;border-top:1px solid var(--border)}
+.sec:first-of-type{border-top:none;padding-top:10px}
+.sec.tr{color:var(--train)}
+.sec.sn{color:var(--snack)}
+.sec.on{color:var(--onsen)}
+.sec.ml{color:var(--meal)}
+
+/* TRAIN BLOCK */
+.train{margin:4px 12px;padding:9px 12px;background:var(--train-bg);border-left:3px solid var(--train);border-radius:0 7px 7px 0;display:flex;gap:9px;align-items:flex-start}
+.train .ti{font-size:15px;flex-shrink:0;margin-top:1px}
+.train .tt{font-size:12px;color:var(--train);line-height:1.5}
+.train .tt strong{color:#0a3060;display:block;margin-bottom:2px}
+.pill{display:inline-block;font-size:10px;font-weight:700;border-radius:4px;padding:1px 6px;margin-right:4px}
+.pt{background:#d0e8ff;color:#1a4a80}
+.pc{background:#d0f0d8;color:#1a5028}
+.pw{background:#e8e0f8;color:#3a1880}
+
+/* ATTRACTION BLOCK */
+.place{margin:5px 12px;border-radius:10px;border:1px solid var(--border);overflow:hidden;background:#fdfcf8}
+.place.opt{border-color:#f0d880;background:#fffdf4}
+.place.on-card{border-color:var(--onsen-border);background:var(--onsen-bg)}
+.place.sn-card{border-color:var(--snack-border);background:var(--snack-bg)}
+.place.ml-card{border-color:var(--meal-border);background:var(--meal-bg)}
+
+.pimg{width:100%;height:155px;object-fit:cover;display:block;background:#e8e0d0}
+.pph{width:100%;height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:40px;gap:6px}
+
+.pbody{padding:10px 12px 11px}
+.ptop{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:5px}
+.pname{font-family:'Playfair Display',serif;font-size:14px;color:var(--ink);line-height:1.3}
+.pname .cn{font-family:'DM Sans',sans-serif;font-size:11px;font-style:normal;color:var(--muted);margin-left:6px;font-weight:400}
+.pcost{font-size:10px;font-weight:700;background:#e8f0d8;color:#2a5010;border-radius:4px;padding:2px 7px;white-space:nowrap;flex-shrink:0}
+.pcost.free{background:#eee;color:#555}
+.pcost.big{background:#fdeee8;color:#8a2000}
+.pcost.must{background:#fdecea;color:#8a2000;border:1px solid #f0a090}
+
+.eta{display:flex;align-items:center;gap:5px;margin-bottom:6px;flex-wrap:wrap}
+.eta-pill{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:600;background:#f5f0e8;color:#5a4820;border-radius:4px;padding:2px 7px}
+.eta-pill.walk{background:#fff3d8;color:#7a5000}
+.eta-pill.transit{background:#e8f0ff;color:#1a4080}
+
+.hl{background:var(--gold-bg);border:1px solid var(--gold-border);border-radius:6px;padding:6px 9px;margin-bottom:6px;font-size:11px;color:#5a4000;line-height:1.5;display:flex;gap:6px}
+.hl .hi{flex-shrink:0;font-size:13px}
+
+.pdesc{font-size:12px;color:#5a5040;line-height:1.55}
+
+.opt-tag{display:inline-block;font-size:9px;font-weight:700;background:#fff3c0;color:#7a5800;border:1px solid #f0d060;border-radius:4px;padding:1px 6px;margin-bottom:5px;letter-spacing:.04em;text-transform:uppercase}
+.must-tag{display:inline-block;font-size:9px;font-weight:700;background:#fdecea;color:#8a2000;border:1px solid #f0a090;border-radius:4px;padding:1px 6px;margin-left:5px;vertical-align:middle;text-transform:uppercase}
+
+/* SNACK */
+.snack{margin:5px 12px;padding:9px 12px;background:var(--snack-bg);border:1px solid var(--snack-border);border-radius:8px;display:flex;gap:9px;align-items:flex-start}
+.snack .si{font-size:18px;flex-shrink:0}
+.snack .sn2{font-size:12px;font-weight:600;color:#5a3800;margin-bottom:2px}
+.snack .sd{font-size:11px;color:#7a5010;line-height:1.5}
+.snack .sc{display:inline-block;font-size:10px;font-weight:700;background:#ffe8a8;color:#7a4800;border-radius:4px;padding:1px 6px;margin-left:5px}
+
+/* MEAL */
+.meal{margin:5px 12px;padding:9px 12px;background:var(--meal-bg);border:1px solid var(--meal-border);border-radius:8px;display:flex;gap:9px;align-items:flex-start}
+.meal .mi{font-size:18px;flex-shrink:0}
+.meal .mn{font-size:12px;font-weight:600;color:#1a4a28;margin-bottom:2px}
+.meal .md{font-size:11px;color:#2a6038;line-height:1.5}
+.meal .mc{display:inline-block;font-size:10px;font-weight:700;background:#b0e8c0;color:#1a5020;border-radius:4px;padding:1px 6px;margin-left:5px}
+
+/* ONSEN */
+.onsen{margin:5px 12px;border-radius:10px;border:1px solid var(--onsen-border);overflow:hidden;background:var(--onsen-bg)}
+
+/* HOTEL NIGHT */
+.hnight{margin:5px 12px 12px;padding:9px 12px;background:#eef6ff;border:1px solid #90c0e8;border-radius:8px;display:flex;gap:8px}
+.hnight .hni{font-size:16px;flex-shrink:0}
+.hnight .hnt{font-size:12px;font-weight:600;color:#1a4a80;margin-bottom:2px}
+.hnight .hnd{font-size:11px;color:#2a5070;line-height:1.5}
+
+/* BUDGET */
+.bwrap{margin:10px}
+.bcard{border-radius:14px;border:1px solid var(--border);overflow:hidden;background:#fff}
+.bhead{background:var(--ink);color:#f0e8d8;padding:14px 16px}
+.bhead h2{font-family:'Playfair Display',serif;font-size:17px;font-weight:400;margin-bottom:3px}
+.bhead p{font-size:11px;color:#a09878}
+.bcat{padding:8px 16px 3px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--border)}
+.bcat:first-child{border-top:none}
+.brow{display:flex;gap:8px;padding:5px 16px;border-bottom:1px solid #f5f0e8}
+.brow:last-of-type{border-bottom:none}
+.bd2{font-size:10px;color:var(--muted);min-width:50px;flex-shrink:0;padding-top:1px}
+.bi{flex:1;font-size:12px;color:#333;line-height:1.4}
+.bm{font-size:12px;font-weight:700;text-align:right;min-width:72px;flex-shrink:0}
+.bm.bl{color:#1a4a80}.bm.bg{color:#1a6010}.bm.br{color:#8a2000}.bm.bx{color:#999}
+.bsub{display:flex;justify-content:space-between;padding:8px 16px;background:#f5f0e8;font-size:12px;font-weight:700;border-top:1px solid var(--border)}
+.grand{background:var(--ink);color:#f0e8d8;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.grand .gl{font-size:12px;color:#a09878}
+.grand .ga{font-family:'Playfair Display',serif;font-size:22px}
+.bnote{padding:10px 16px;background:var(--gold-bg);border-top:1px solid var(--gold-border);font-size:11px;color:#5a4000;line-height:1.7}
+
+.food-thumb{width:100%;height:120px;object-fit:cover;display:block;background:#e8e0d0;border-radius:8px 8px 0 0}
+.food-wrap{border-radius:8px;overflow:hidden;margin:5px 12px;border:1px solid var(--snack-border)}
+.food-wrap .snack,.food-wrap .meal{margin:0;border-radius:0;border:none}
+.food-wrap.mw{border-color:var(--meal-border)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="sub">13 – 19 May 2026 · Japan</div>
+  <h1>Your Japan Itinerary</h1>
+  <div class="hotel-row">
+    <div class="hpill">
+      <div class="hl">🟢 Kyoto · Nights 1–3</div>
+      <div class="hn">Rakuten STAY URBAN Kyoto Shijo Omiya</div>
+      <div class="hd">13–16 May · RM653.43 · 大宮駅 3 min walk</div>
+    </div>
+    <div class="hpill osaka">
+      <div class="hl">🔴 Osaka · Nights 4–6</div>
+      <div class="hn">OneFive Osaka Shinsekai</div>
+      <div class="hd">16–19 May · RM744.43 · 通天閣 200m</div>
+    </div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab on" onclick="sw('itin',this)">📅 Itinerary</button>
+  <button class="tab" onclick="sw('budget',this)">💰 Budget</button>
+</div>
+
+<!-- ============ ITINERARY ============ -->
+<div class="panel on" id="itin">
+
+<!-- DAY 1 -->
+<div class="day k">
+  <div class="dh open" onclick="tog(this)">
+    <div class="dbadge bk">13 May<br>Wed · Day 1</div>
+    <div class="dtw"><div class="dt">Arrive KIX → Kyoto</div><div class="ds">Easy arrival day · Nijo Castle · Nishiki Market · rest</div></div>
+    <div class="da open">▼</div>
+  </div>
+  <div class="db open">
+
+    <div class="depart">
+      <div class="di">✈️</div>
+      <div>
+        <div class="dt2">Land 09:50 · At hotel ~1:00pm</div>
+        <div class="dd">Clear customs ~11am. Take JR Haruka from KIX. Walk 3 min from 大宮駅 Omiya Station to hotel. Drop bags, freshen up. Keep it easy today — long haul flight means an early dinner and good rest is the priority.</div>
+      </div>
+    </div>
+
+    <div class="sec tr">🚆 Transport · KIX → Hotel</div>
+    <div class="train"><div class="ti">🛬</div><div class="tt"><strong>KIX → 京都駅 Kyoto Station</strong><span class="pill pt">JR Haruka はるか</span><span class="pill pc">~75 min</span><span class="pill pw">¥1,800 · RM54</span><br>Direct express. No transfers. Buy at JR counter in airport terminal B1. Add Suica card to your phone wallet here too.</div></div>
+    <div class="train"><div class="ti">🚋</div><div class="tt"><strong>京都駅 Kyoto Station → 大宮駅 Omiya Station</strong><span class="pill pt">Hankyu Kyoto Line 阪急京都線</span><span class="pill pc">~5 min</span><span class="pill pw">¥220 · RM7</span><br>2 stops. Walk 3 min to hotel.</div></div>
+
+    <div class="sec tr">🚆 Hotel → Nijo Castle</div>
+    <div class="train"><div class="ti">🚌</div><div class="tt"><strong>四条大宮 Shijo-Omiya stop → 二条城前 Nijojo-mae stop</strong><span class="pill pt">Bus 9 / 50</span><span class="pill pc">~15 min</span><span class="pill pw">¥230 · RM7</span></div></div>
+
+    <div class="sec">🕑 Afternoon (take it easy)</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Nijo_castle_Kyoto_October_2016.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🏯</span><span style="font-size:12px;color:#d0f0d0;font-family:sans-serif;font-weight:600">Nijo Castle · 二条城</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Nijo Castle<span class="cn">二条城</span></div><div class="pcost">¥800 · RM24</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 2 min from bus stop</span><span class="eta-pill">⏱ 1–1.5hrs</span></div>
+        <div class="hl"><span class="hi">⭐</span>UNESCO shogun palace with famous "nightingale floors" 鶯張り that chirp as you walk — a clever security system built into the flooring. Inside, 800-year-old gold-leaf painted screens line every wall. A perfect, low-effort first afternoon attraction.</div>
+        <div class="pdesc">Built 1603 for the Tokugawa shogun. Flat grounds — easy on tired legs. Stunning moat and gardens outside. Open until 5pm.</div>
+      </div>
+    </div>
+
+    <div class="place opt">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mikane-jinja_Kyoto.jpg/640px-Mikane-jinja_Kyoto.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>⛩</span><span style="font-size:12px;color:#fff8d0;font-family:sans-serif;font-weight:600">Mikane Shrine · 御金神社</span></div>
+      <div class="pbody">
+        <div class="opt-tag">If you have energy · 10 min walk from Nijo</div>
+        <div class="ptop"><div class="pname">Mikane Shrine<span class="cn">御金神社</span></div><div class="pcost free">Free</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 10 min walk from 二条城 Nijo Castle</span><span class="eta-pill">⏱ 15 min</span></div>
+        <div class="hl"><span class="hi">✨</span>Tiny gold-leafed shrine dedicated to wealth and good fortune. Only takes 15 min — glitters beautifully at dusk. A nice detour on the way to Nishiki.</div>
+        <div class="pdesc">Easy detour. Buy a gold fortune slip for good luck on your trip.</div>
+      </div>
+    </div>
+
+    <div class="sec tr">🚆 Nijo area → Nishiki Market</div>
+    <div class="train"><div class="ti">🚌</div><div class="tt"><strong>二条城前 Nijojo-mae → 四条河原町 Shijo-Kawaramachi</strong><span class="pill pt">Bus 12</span><span class="pill pc">~20 min</span><span class="pill pw">¥230 · RM7</span><br>5 min walk to Nishiki Market from Kawaramachi.</div></div>
+
+    <div class="sec">🛍 Evening</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Nishiki_market_kyoto.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🛍</span><span style="font-size:12px;color:#ffd0c0;font-family:sans-serif;font-weight:600">Nishiki Market · 錦市場</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Nishiki Market<span class="cn">錦市場・锦市场</span></div><div class="pcost free">Free entry</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 5 min walk from 四条河原町 Shijo-Kawaramachi bus stop</span><span class="eta-pill">⏱ 45 min · closes 6pm</span></div>
+        <div class="hl"><span class="hi">⭐</span>Kyoto's 400-year-old covered food street with 130+ stalls. Free tastings at almost every stall — tako tamago, fresh pickles, yuba, matcha sweets. The perfect low-effort introduction to Kyoto's food culture.</div>
+        <div class="pdesc">Go hungry — you can graze your way through as a light dinner. Buy a few snacks to take back to the hotel. Open until 6pm most stalls.</div>
+      </div>
+    </div>
+
+    <div class="sec sn">🍡 Snack / light dinner at Nishiki</div>
+    <div class="food-wrap"><div style="background:linear-gradient(135deg,#b03020,#7a0800);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🍢</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Graze at Nishiki Market</span></div><div style="margin:0"><div class="snack"><div class="si">🍢</div><div><div class="sn2">Graze at Nishiki Market · 錦市場<span class="sc">RM30–40</span></div><div class="sd">Tako tamago (baby octopus with quail egg), fresh tamagoyaki egg rolls, dango on skewers, matcha soft serve — eat as you walk. No need for a sit-down dinner tonight. Save your appetite for the wagyu splurge tomorrow!</div></div></div></div></div>
+
+    <div class="sec ml">🥩 Dinner — treat yourself on arrival night!</div>
+    <div class="food-wrap mw"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Tofu_miso_soup.jpg" alt="Okutan Tofu · 奥丹湯豆腐" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#4a6a4a,#2a4a2a);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🍢</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Okutan Tofu · 奥丹湯豆腐</span></div><div style="margin:0"><div class="meal"><div class="mi">🥩</div><div><div class="mn">A5 Wagyu Sukiyaki · Yoshitate Amakusa 吉建天草<span class="mc">~RM150</span></div><div class="md">A5 Wagyu sukiyaki — exceptional value at ~S$10/pax. Sweet soy broth, marbled beef, dipped in raw egg. Confirm exact address on Google Maps before going. Backup: Wagyu Sukiyaki Kyoto Panga near 烏丸御池駅 Karasuma-Oike Station (Halal certified).</div></div></div></div></div>
+
+    <div class="hnight"><div class="hni">🏨</div><div><div class="hnt">Night 1 · Rakuten STAY URBAN Kyoto Shijo Omiya</div><div class="hnd">Early night! Tomorrow starts at 7:00am — bamboo grove before 8am is non-negotiable for the best photos.</div></div></div>
+  </div>
+</div>
+
+<!-- DAY 2 -->
+<div class="day k">
+  <div class="dh" onclick="tog(this)">
+    <div class="dbadge bk">14 May<br>Thu · Day 2</div>
+    <div class="dtw"><div class="dt">Arashiyama 嵐山</div><div class="ds">Bamboo · Zen garden · scenic train · onsen</div></div>
+    <div class="da">▼</div>
+  </div>
+  <div class="db">
+
+    <div class="depart">
+      <div class="di">🌅</div>
+      <div>
+        <div class="dt2">Depart hotel 7:00am</div>
+        <div class="dd">Early start is essential — bamboo grove before 8am means almost no crowds and misty morning light. It's the defining photo of Kyoto.</div>
+      </div>
+    </div>
+
+    <div class="sec tr">🚆 Transport · Hotel → Arashiyama</div>
+    <div class="train"><div class="ti">🚋</div><div class="tt"><strong>大宮駅 Omiya Station → 桂駅 Katsura</strong><span class="pill pt">Hankyu Kyoto Line 阪急京都線</span><span class="pill pc">~10 min</span><span class="pill pw">¥200 · RM6</span></div></div>
+    <div class="train"><div class="ti">🚋</div><div class="tt"><strong>桂駅 Katsura → 嵐山駅 Arashiyama Station</strong><span class="pill pt">Hankyu Arashiyama Line 阪急嵐山線</span><span class="pill pc">~5 min</span><span class="pill pw">¥170 · RM5</span><br>Total journey ~20 min. Walk 5 min from station to bamboo grove entrance.</div></div>
+
+    <div class="sec">🎋 Early Morning · before 8am</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Arashiyama_Bamboo_Grove_%28Unsplash%29.jpg/800px-Arashiyama_Bamboo_Grove_%28Unsplash%29.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🎋</span><span style="font-size:12px;color:#c0f0c0;font-family:sans-serif;font-weight:600">Bamboo Grove · 竹林小径</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Arashiyama Bamboo Grove<span class="cn">竹林の小径・竹林小径</span></div><div class="pcost free">Free</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 5 min walk from 嵐山駅 Arashiyama Station</span><span class="eta-pill">⏱ 15–20 min walk-through</span></div>
+        <div class="hl"><span class="hi">⭐</span>Towering bamboo stalks form a natural cathedral of green — light filters through in surreal golden rays in the early morning. Kyoto's single most iconic photograph. Absolutely worthless after 9am (crowds). Before 8am it's magic.</div>
+        <div class="pdesc">The path is short but slow down and absorb it. Free, open 24hrs. After the grove, head directly to Tenryu-ji — the gate is just 2 min away.</div>
+      </div>
+    </div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Tenryuji_02.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🌿</span><span style="font-size:12px;color:#c0f0d0;font-family:sans-serif;font-weight:600">Tenryu-ji Garden · 天龍寺</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Tenryu-ji Garden<span class="cn">天龍寺・天龙寺</span></div><div class="pcost">¥500 · RM15</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 2 min from bamboo grove</span><span class="eta-pill">⏱ 45 min</span></div>
+        <div class="hl"><span class="hi">⭐</span>700-year-old UNESCO Zen pond garden — the water perfectly mirrors the Arashiyama mountains behind. One of Japan's most beautifully composed garden views. Opens 8:30am.</div>
+        <div class="pdesc">The pond garden is the main draw. Large koi fish, raked gravel, ancient pines. The ceiling of the main hall has a stunning dragon painting (extra fee to enter).</div>
+      </div>
+    </div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Togetsukyo_Bridge_Arashiyama_2019.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🌉</span><span style="font-size:12px;color:#c0d8f8;font-family:sans-serif;font-weight:600">Togetsukyo Bridge · 渡月橋</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Togetsukyo Bridge<span class="cn">渡月橋・渡月桥</span></div><div class="pcost free">Free</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 5 min walk south from Tenryu-ji</span><span class="eta-pill">⏱ 15 min</span></div>
+        <div class="hl"><span class="hi">📸</span>"Moon Crossing Bridge" over the Oi River — forested mountains as the backdrop. Stand on the south bank facing north for the classic wide-angle composition.</div>
+        <div class="pdesc">Quick stop. Rowboats available on the river if you want a fun detour (¥1,500/30 min).</div>
+      </div>
+    </div>
+
+    <div class="sec sn">🍵 Mid-morning snack</div>
+    <div class="food-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sukiyaki_by_ayako_2006.jpg" alt="A5 Wagyu Sukiyaki · 吉建天草" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#8a1010,#5a0000);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🥩</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">A5 Wagyu Sukiyaki · 吉建天草</span></div><div style="margin:0"><div class="snack"><div class="si">🍵</div><div><div class="sn2">Matcha Soft Serve · 抹茶ソフトクリーム<span class="sc">RM13</span></div><div class="sd">Dozens of shops along the main Arashiyama street. Rich, intensely green, slightly bitter. One scoop is enough — save appetite for lunch.</div></div></div></div></div>
+
+    <div class="sec ml">🍽 Lunch</div>
+    <div class="food-wrap mw"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Inarizushi.jpg" alt="Inari Sushi · 稲荷寿司" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#c07020,#8a4000);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🍱</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Inari Sushi · 稲荷寿司</span></div><div style="margin:0"><div class="meal"><div class="mi">☕</div><div><div class="mn">ExCafe 嵐山エクスフェ · 光悦寺町 · Snack / light lunch<span class="mc">RM30–40</span></div><div class="md">Traditional Kyoto machiya townhouse converted into a café with a beautiful garden courtyard. Matcha desserts and light meals. Great atmosphere inside the historic building. A good place to sit down between activities.</div></div></div></div></div>
+
+    <div class="sec">🚞 Afternoon</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Sagano_scenic_railway.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🚞</span><span style="font-size:12px;color:#f8d8b0;font-family:sans-serif;font-weight:600">Sagano Scenic Train · 嵯峨野トロッコ</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Sagano Romantic Train<span class="cn">嵐山観光トロッコ・嵯峨野小火车</span></div><div class="pcost">¥880 · RM27</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 8 min walk to 嵯峨トロッコ Saga-Torokko Station</span><span class="eta-pill">⏱ 25 min ride + return</span></div>
+        <div class="hl"><span class="hi">⭐</span>Open-air vintage train through a dramatic mountain river gorge — one of Japan's most scenic short train rides. The combination of rushing water, forested cliffs and open carriages is stunning.</div>
+        <div class="pdesc"><strong>⚠️ Book ahead online!</strong> · Departs 嵯峨トロッコ Saga-Torokko → 亀岡トロッコ Kameoka-Torokko (25 min) · Return by JR Sagano Line<br><strong>Seat tip:</strong> Request Right side seats 右側 C/D for the best river gorge views on the way out!</div>
+      </div>
+    </div>
+
+    <div class="sec sn">🍘 Afternoon snack</div>
+    <div class="food-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Machiya_Kyoto.jpg" alt="ExCafe Arashiyama · 嵐山カフェ" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#7a5a3a,#4a2a10);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">☕</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">ExCafe Arashiyama · 嵐山カフェ</span></div><div style="margin:0"><div class="snack"><div class="si">🍘</div><div><div class="sn2">Nama Yatsuhashi · 生八ツ橋 · 生八桥饼<span class="sc">RM10</span></div><div class="sd">Kyoto's most iconic snack — soft cinnamon rice wafer folded around smooth red bean paste. Buy fresh from any shop in Arashiyama.</div></div></div></div></div>
+
+    <div class="sec on">♨️ Evening Onsen</div>
+    <div class="place on-card">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Rotemburo-1.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>♨️</span><span style="font-size:12px;color:#f8c0f0;font-family:sans-serif;font-weight:600">Tenzan-no-yu Onsen · 天山の湯</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Tenzan-no-yu<span class="cn">天山の湯</span></div><div class="pcost">¥1,000 · RM30</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 1 min from 阪急嵐山駅 Hankyu Arashiyama Station</span><span class="eta-pill">⏱ 1–1.5hrs</span></div>
+        <div class="hl"><span class="hi">♨️</span>Natural hot spring right in Arashiyama — sodium-rich water great for tired skin and muscles. Indoor and outdoor baths, sauna. The perfect recovery after a full walking day.</div>
+        <div class="pdesc">Open daily until midnight. Towel rental available. No tattoo restrictions. One of the best value onsens in Kyoto.</div>
+      </div>
+    </div>
+
+    <div class="sec ml">🥩 Dinner</div>
+    <div class="food-wrap mw"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Kushikatsu.jpg" alt="Kushikatsu Shinsekai · 串カツ" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#c05010,#8a2800);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🍢</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Kushikatsu Shinsekai · 串カツ</span></div><div style="margin:0"><div class="meal"><div class="mi">🥩</div><div><div class="mn">Wagyu Yakiniku · 弘焼肉 和牛<span class="mc">RM150</span></div><div class="md">Highly rated wagyu BBQ in central Kyoto. Your splurge night — marbled beef grilled at the table. Reserve ahead. Return to hotel by Hankyu from 嵐山駅 Arashiyama (~20 min).</div></div></div></div></div>
+
+    <div class="hnight"><div class="hni">🏨</div><div><div class="hnt">Night 2 · Rakuten STAY URBAN Kyoto Shijo Omiya</div><div class="hnd">Tomorrow is a gentler day — no need for an early start.</div></div></div>
+  </div>
+</div>
+
+<!-- DAY 3 -->
+<div class="day s">
+  <div class="dh" onclick="tog(this)">
+    <div class="dbadge bs">15 May ★<br>Fri · Day 3</div>
+    <div class="dtw"><div class="dt">Kyoto North · Nijo Castle <span style="font-size:11px;color:#b8820a">🪷 Aoi Matsuri optional</span></div><div class="ds">Golden Pavilion · Rock garden · Fortune shrine · Shogun palace</div></div>
+    <div class="da">▼</div>
+  </div>
+  <div class="db">
+
+    <div class="depart">
+      <div class="di">🌤</div>
+      <div>
+        <div class="dt2">Depart hotel 8:30am</div>
+        <div class="dd">Golden Pavilion is best before 9am — arrives crowded fast. Grab free congee breakfast at hotel before heading out.</div>
+      </div>
+    </div>
+
+    <div class="sec tr">🚆 Transport · Hotel → Kinkaku-ji</div>
+    <div class="train"><div class="ti">🚌</div><div class="tt"><strong>四条大宮 Shijo-Omiya stop → 金閣寺道 Kinkakuji-michi stop</strong><span class="pill pt">Bus 12 / 59</span><span class="pill pc">~25 min</span><span class="pill pw">¥230 · RM7</span><br>Walk 5 min from bus stop to Golden Pavilion entrance.</div></div>
+
+    <div class="sec">☀️ Morning</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Kinkaku-ji_in_Kyoto%2C_Japan-2.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>✨</span><span style="font-size:12px;color:#fff8c0;font-family:sans-serif;font-weight:600">Kinkaku-ji · 金閣寺 Golden Pavilion</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Kinkaku-ji · Golden Pavilion<span class="cn">金閣寺・金阁寺</span></div><div class="pcost">¥500 · RM15</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 5 min from 金閣寺道 Kinkakuji-michi bus stop</span><span class="eta-pill">⏱ 45 min</span></div>
+        <div class="hl"><span class="hi">⭐</span>Three-storey pavilion entirely covered in gold leaf, perfectly reflected in a still mirror pond. One of Japan's most recognisable buildings. The reflection doubles the impact — best photos from the main viewing area.</div>
+        <div class="pdesc">Go before 9am for the clearest reflections and thinner crowds. The garden walk takes ~30 min. Exit through the souvenir area.</div>
+      </div>
+    </div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Ryoan-ji_rock_garden.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🪨</span><span style="font-size:12px;color:#e8d8c8;font-family:sans-serif;font-weight:600">Ryoan-ji Rock Garden · 龍安寺</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Ryoan-ji Temple<span class="cn">龍安寺・龙安寺</span></div><div class="pcost">¥600 · RM18</div></div>
+        <div class="eta"><span class="eta-pill transit">🚌 5 min by bus from 金閣寺道 to 竜安寺前 Ryoanji-mae</span><span class="eta-pill">⏱ 45 min</span></div>
+        <div class="hl"><span class="hi">⭐</span>World's most famous Zen rock garden — 15 rocks arranged in white gravel. No matter where you sit, you can never see all 15 at once. The mystery is the entire point. Deeply contemplative.</div>
+        <div class="pdesc">Sit on the wooden veranda and just look. Don't rush this one. The garden also has a beautiful pond (Kyoyochi) worth walking around outside.</div>
+      </div>
+    </div>
+
+    <div class="place opt">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Kitano-Tenmangu_Kyoto_Pref01s4s3200.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>⛩</span><span style="font-size:12px;color:#ffd0c8;font-family:sans-serif;font-weight:600">Kitano Tenmangu · 北野天満宮</span></div>
+      <div class="pbody">
+        <div class="opt-tag">If you have energy</div>
+        <div class="ptop"><div class="pname">Kitano Tenmangu<span class="cn">北野天満宮・北野天满宫</span></div><div class="pcost free">Free</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 15 min walk from 龍安寺 Ryoan-ji</span><span class="eta-pill">⏱ 30 min</span></div>
+        <div class="hl"><span class="hi">🪄</span>Shrine of the god of learning. Famous ritual: snap the "bad luck stick" 厄除棒 with your bare hands to break bad fortune — unique to this shrine only!</div>
+        <div class="pdesc">Completely free, quick stop. The surrounding market street has good snack stalls.</div>
+      </div>
+    </div>
+
+    <div class="sec tr">🚆 Transport · North Kyoto → Nijo Castle</div>
+    <div class="train"><div class="ti">🚌</div><div class="tt"><strong>竜安寺前 Ryoanji-mae → 二条城前 Nijojo-mae</strong><span class="pill pt">Bus 50</span><span class="pill pc">~25 min</span><span class="pill pw">¥230 · RM7</span></div></div>
+
+    <div class="sec">🪷 Optional · Aoi Matsuri 葵祭 (Free)</div>
+    <div class="place opt">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Aoi_Matsuri_2009.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🪷</span><span style="font-size:12px;color:#f0c0ff;font-family:sans-serif;font-weight:600">Aoi Matsuri Festival · 葵祭</span></div>
+      <div class="pbody">
+        <div class="opt-tag">Optional · Today only · Free</div>
+        <div class="ptop"><div class="pname">Aoi Matsuri Procession<span class="cn">葵祭・葵祭游行</span></div><div class="pcost free">Free</div></div>
+        <div class="eta"><span class="eta-pill transit">🚌 Bus to 下鴨神社 Shimogamo Shrine</span><span class="eta-pill">⏱ Watch 30–45 min</span></div>
+        <div class="hl"><span class="hi">🪷</span>One of Kyoto's 3 great festivals — 500+ people in full Heian imperial court robes parading 8km through the city. Procession arrives at 下鴨神社 Shimogamo Shrine ~11:40am. Completely free to watch from the roadside.</div>
+        <div class="pdesc">If you do this: go to Shimogamo Shrine first (morning), watch the procession ~11:40am, then continue to Nijo Castle in the afternoon. If skipping: go straight to Nijo after Ryoan-ji.</div>
+      </div>
+    </div>
+
+    <div class="sec">🏯 Afternoon</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Nijo_castle_Kyoto_October_2016.jpg" alt="Nijo Castle · 二条城" style="width:100%;height:160px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div class="pph" style="background:linear-gradient(135deg,#5a7a5a,#3a5a3a)"><span>🏯</span><span style="font-size:12px;color:#d0f0d0;font-family:sans-serif;font-weight:600">Nijo Castle · 二条城</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Nijo Castle<span class="cn">二条城・二条城</span></div><div class="pcost">¥800 · RM24</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 2 min from 二条城前駅 Nijojo-mae Station (Tozai Line 東西線)</span><span class="eta-pill">⏱ 1.5hrs</span></div>
+        <div class="hl"><span class="hi">⭐</span>UNESCO shogun palace with famous "nightingale floors" 鶯張り that chirp as you walk — a clever security system against intruders. Inside, 800-year-old gold-leaf painted screens line every wall.</div>
+        <div class="pdesc">Built 1603 for the Tokugawa shogun. Allow time for both the Ninomaru Palace (floors chirp here) and the surrounding moat gardens. Open until 5pm.</div>
+      </div>
+    </div>
+
+    <div class="sec sn">🍡 Snack</div>
+    <div class="food-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Matcha-ice-cream.jpg" alt="Matcha Soft Serve · 抹茶ソフト" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#3a7a3a,#1a5020);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🍵</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Matcha Soft Serve · 抹茶ソフト</span></div><div style="margin:0"><div class="snack"><div class="si">🍡</div><div><div class="sn2">Mitarashi Dango · 御手洗団子<span class="sc">RM10</span></div><div class="sd">Chewy rice dumplings on a skewer with sweet soy glaze. Sold at stalls near the castle grounds. The most traditional Kyoto street snack.</div></div></div></div></div>
+
+    <div class="sec tr">🚆 Transport · Nijo Castle → Higashiyama</div>
+    <div class="train"><div class="ti">🚌</div><div class="tt"><strong>二条城前 Nijojo-mae → 五条坂 Gojo-zaka</strong><span class="pill pt">Bus 12 → transfer Bus 206 at 四条河原町</span><span class="pill pc">~25 min</span><span class="pill pw">¥230 · RM7</span><br>Get kimono first — shops are near Gojo-zaka stop. Return kimono by 5:30–6pm.</div></div>
+
+    <div class="sec">👘 Afternoon · Kimono + Higashiyama 東山</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Woman_in_kimono%2C_Higashiyama%2C_Kyoto.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>👘</span><span style="font-size:12px;color:#ffc8d8;font-family:sans-serif;font-weight:600">Kimono Rental · 着物レンタル</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Kimono Rental<span class="cn">着物レンタル・和服体験</span></div><div class="pcost big">¥3,000–4,500 · RM99–149</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 Several shops near 五条坂 Gojo-zaka bus stop</span><span class="eta-pill">⏱ 30 min to dress · return by 6pm</span></div>
+        <div class="hl"><span class="hi">📸</span>By Day 3 you're rested, settled, and ready to look great. Every photo in Higashiyama is 10x better in a kimono. Includes full dressing, accessories and hair. This is the quintessential Kyoto first-timer experience.</div>
+        <div class="pdesc">Book ahead online! Hundreds of patterns to choose from — go colourful. Return kimono by 5:30pm. Many shops near 清水寺 Kiyomizudera temple approach.</div>
+      </div>
+    </div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Kiyomizu-dera_Kyoto_Nov2017.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🏯</span><span style="font-size:12px;color:#ffd0c0;font-family:sans-serif;font-weight:600">Kiyomizudera Temple · 清水寺</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Kiyomizudera Temple<span class="cn">清水寺</span></div><div class="pcost">¥400 · RM13</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 10 min uphill from Gojo-zaka · 5 min from kimono shops</span><span class="eta-pill">⏱ 1–1.5hrs</span></div>
+        <div class="hl"><span class="hi">⭐</span>Iconic wooden stage cantilevered over a forested hill — built without a single nail. Kyoto's #1 photo spot. Breathtaking views over the city. Stunning in kimono — the combination is peak Kyoto.</div>
+        <div class="pdesc">Open from 6am. Afternoon light is beautiful here in May. The surrounding hillside with pagodas and wooded slopes is just as photogenic as the main stage platform.</div>
+      </div>
+    </div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Nineizaka_Higashiyama_Ward_Kyoto_City01n4592.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🪨</span><span style="font-size:12px;color:#f0e8d0;font-family:sans-serif;font-weight:600">Ninenzaka · Sannenzaka · 二年坂</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Ninenzaka & Sannenzaka<span class="cn">二年坂・三年坂</span></div><div class="pcost free">Free</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 5 min walk downhill from Kiyomizudera</span><span class="eta-pill">⏱ 30–45 min</span></div>
+        <div class="hl"><span class="hi">📸</span>Stone-paved historic lanes below the temple — the most photogenic street in Kyoto. Lined with matcha shops, ceramics, folding fans and kimono boutiques. Magical in the late afternoon light wearing kimono.</div>
+        <div class="pdesc">Browse freely. Pick up nama yatsuhashi as edible souvenirs. Legend: trip on the steps = 2–3 years of bad luck!</div>
+      </div>
+    </div>
+
+    <div class="sec sn">🍵 Snack on Sannenzaka</div>
+    <div class="food-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Matcha-ice-cream.jpg" alt="Matcha Warabi Mochi · 抹茶蕨餅" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#3a7a3a,#1a5020);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px"><span style="font-size:32px">🍵</span><span style="font-size:11px;color:#c0f0d0;font-family:sans-serif;font-weight:600">Matcha Warabi Mochi · 抹茶蕨餅</span></div><div style="margin:0"><div class="snack"><div class="si">🍵</div><div><div class="sn2">Matcha Warabi Mochi · 抹茶蕨餅<span class="sc">RM27–30</span></div><div class="sd">Silky bracken starch mochi dusted in matcha, served in a ceramic bowl at Sannenzaka cafés. Very photogenic — pairs beautifully with kimono. Worth every ringgit.</div></div></div></div></div>
+
+    <div class="sec">🌆 Evening · Gion 祇園</div>
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Hanamikoji_dori_evening.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🏮</span><span style="font-size:12px;color:#ffc0b8;font-family:sans-serif;font-weight:600">Hanamikoji · Gion · 花見小路</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Hanamikoji & Gion<span class="cn">花見小路・祇園</span></div><div class="pcost free">Free</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 10 min walk from Ninenzaka</span><span class="eta-pill">⏱ 30–45 min</span></div>
+        <div class="hl"><span class="hi">⭐</span>Kyoto's famous geisha district — narrow lantern-lit alley flanked by wooden teahouses. Walk after 6pm to spot maiko in full dress heading to evening engagements. The most atmospheric street in Japan at night.</div>
+        <div class="pdesc">Most atmospheric at dusk. Don't block or photograph maiko up close. Free to wander. The amber glow of the ochaya teahouses is unforgettable.</div>
+      </div>
+    </div>
+
+    <div class="sec ml">🍜 Dinner</div>
+    <div class="food-wrap mw"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Shika_manju.jpg" alt="Deer Manju · 鹿まんじゅう" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#b08030,#7a5000);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🦌</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Deer Manju · 鹿まんじゅう</span></div><div style="margin:0"><div class="meal"><div class="mi">🏮</div><div><div class="mn">Pontocho Alley · 先斗町<span class="mc">RM63</span></div><div class="md">Narrow lantern-lit alley of izakayas running along the 鴨川 Kamogawa River. Lively Friday night. Try Kyoto-style kaiseki, ramen or yakitori. Bus from 五条坂 Gojo-zaka → 四条河原町 Kawaramachi (~15 min).</div></div></div></div></div>
+
+    <div class="hnight"><div class="hni">🏨</div><div><div class="hnt">Night 3 · Rakuten STAY URBAN Kyoto Shijo Omiya · Last night in Kyoto</div><div class="hnd">Check out tomorrow morning. Pack bags tonight! Fushimi Inari → Osaka tomorrow.</div></div></div>
+  </div>
+</div>
+
+<!-- DAY 4 -->
+<div class="day k">
+  <div class="dh" onclick="tog(this)">
+    <div class="dbadge bk">16 May<br>Sat · Day 4</div>
+    <div class="dtw"><div class="dt">Fushimi Inari → Check in Osaka</div><div class="ds">10,000 torii gates · Shinsekai · Spaworld onsen</div></div>
+    <div class="da">▼</div>
+  </div>
+  <div class="db">
+
+    <div class="depart">
+      <div class="di">🧳</div>
+      <div>
+        <div class="dt2">Check out 10:00am · Depart hotel 10:15am</div>
+        <div class="dd">Store bags at 京都駅 Kyoto Station coin locker. Head to Fushimi Inari in the afternoon for golden light. Arrive Osaka in the evening.</div>
+      </div>
+    </div>
+
+    <div class="sec tr">🚆 Transport · Hotel → Kyoto Station (bag drop)</div>
+    <div class="train"><div class="ti">🚋</div><div class="tt"><strong>大宮駅 Omiya → 京都駅 Kyoto Station</strong><span class="pill pt">Hankyu → Kyoto Station area</span><span class="pill pc">~10 min</span><span class="pill pw">¥220 · RM7</span><br>Store luggage in coin lockers コインロッカー at 京都駅 · ¥600 · RM18</div></div>
+
+    <div class="sec">🌿 Morning (optional if not tired)</div>
+
+    <div class="place opt">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Philosophers_Walk_Kyoto_Japan.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🌿</span><span style="font-size:12px;color:#c0f0d0;font-family:sans-serif;font-weight:600">Philosopher's Path · 哲学の道</span></div>
+      <div class="pbody">
+        <div class="opt-tag">Optional — relaxed morning</div>
+        <div class="ptop"><div class="pname">Philosopher's Path<span class="cn">哲学の道・哲学之道</span></div><div class="pcost free">Free</div></div>
+        <div class="eta"><span class="eta-pill transit">🚌 Bus 5 from 京都駅 Kyoto Station → 南禅寺・永観堂道 stop · ~25 min</span><span class="eta-pill walk">🚶 2km walk along canal · ~40 min</span></div>
+        <div class="hl"><span class="hi">🌿</span>2km peaceful canal-side path named after philosopher Nishida Kitaro, who meditated here daily. Lush green in May. Small cafés and galleries tucked along the way. Completely different atmosphere from temple-hopping.</div>
+        <div class="pdesc">Walk north → south or reverse. Connects 銀閣寺 Ginkaku-ji area down to 南禅寺 Nanzenji area. If skipping, proceed directly to Fushimi Inari in the afternoon — you'll have plenty of time.</div>
+      </div>
+    </div>
+
+    <div class="sec ml">🍜 Lunch</div>
+    <div class="food-wrap mw"><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Kakinoha_sushi.jpg" alt="Kakinoha-zushi · 柿の葉寿司" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#6a8a4a,#3a5a20);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🍱</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Kakinoha-zushi · 柿の葉寿司</span></div><div style="margin:0"><div class="meal"><div class="mi">🍢</div><div><div class="mn">Okutan · 奥丹 · near 南禅寺 Nanzenji<span class="mc">RM97</span></div><div class="md">380-year-old yudofu tofu restaurant in a beautiful traditional wooden house. Set course with multiple tofu preparations, rice, pickles. One of Kyoto's most authentic dining experiences. Closed Thursdays — Saturday is perfect. Reserve ahead.</div></div></div></div></div>
+
+    <div class="sec tr">🚆 Transport · Lunch area → Fushimi Inari</div>
+    <div class="train"><div class="ti">🚌</div><div class="tt"><strong>南禅寺 area → 京都駅 Kyoto Station</strong><span class="pill pt">Bus 5</span><span class="pill pc">~25 min</span><span class="pill pw">¥230 · RM7</span><br>Collect bags from locker.</div></div>
+    <div class="train"><div class="ti">🚆</div><div class="tt"><strong>京都駅 Kyoto Station → 稲荷駅 JR Inari Station</strong><span class="pill pt">JR奈良線 JR Nara Line</span><span class="pill pc">~5 min</span><span class="pill pw">¥150 · RM5</span><br>Fushimi Inari gate is directly in front of the station exit. Aim to arrive 4–5pm.</div></div>
+
+    <div class="sec">🔴 Afternoon · Fushimi Inari</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Fushimi_Inari_Taisha_shrine_Kyoto_Japan.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>⛩</span><span style="font-size:12px;color:#ffc8b8;font-family:sans-serif;font-weight:600">Fushimi Inari Taisha · 伏見稲荷大社</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Fushimi Inari Taisha<span class="cn">伏見稲荷大社・伏见稻荷大社</span></div><div class="pcost free">Free · Open 24hrs</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 1 min from 稲荷駅 JR Inari Station</span><span class="eta-pill">⏱ Walk 40–50 min in (then return)</span></div>
+        <div class="hl"><span class="hi">⭐</span>10,000 vermillion torii gates donated by businesses wind up a sacred mountain. Walking through the gate tunnels at golden hour is one of the most surreal experiences in Japan. Most tourists turn back at 10 min — walk 30–40 min further for the real magic.</div>
+        <div class="pdesc">4–5pm = golden light filtering through the gates. Free, open always. You don't need to climb the full mountain — the first 40 min gives you the best tunnel photos. Return same way back to JR Inari.</div>
+      </div>
+    </div>
+
+    <div class="sec sn">🍡 Snack at shrine gate</div>
+    <div class="food-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Nama-yatsuhashi.jpg" alt="Nama Yatsuhashi · 生八ツ橋" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#c07030,#8a4000);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🍘</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Nama Yatsuhashi · 生八ツ橋</span></div><div style="margin:0"><div class="snack"><div class="si">🍱</div><div><div class="sn2">Inari Sushi · 稲荷寿司<span class="sc">RM13</span></div><div class="sd">Sweet tofu pockets stuffed with vinegared rice — the fox deity's offering. Only sold near Inari shrines. Stalls at the entrance gate. Eat before heading in.</div></div></div></div></div>
+
+    <div class="sec tr">🚆 Transport · Fushimi Inari → Osaka Ebisu Hotel</div>
+    <div class="train"><div class="ti">🚆</div><div class="tt"><strong>稲荷駅 JR Inari → 新今宮駅 JR Shin-Imamiya</strong><span class="pill pt">JR奈良線 JR Nara Line (south)</span><span class="pill pc">~25 min</span><span class="pill pw">¥400 · RM13</span><br>Walk 5 min to OneFive Osaka Shinsekai. 通天閣 Tsutenkaku Tower visible from the hotel. Check in!</div></div>
+
+    <div class="sec">🌆 Evening · Shinsekai 新世界</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Shinsekai_Osaka_Japan.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🏙</span><span style="font-size:12px;color:#ffe8b0;font-family:sans-serif;font-weight:600">Shinsekai · 新世界 · Tsutenkaku 通天閣</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Shinsekai & Tsutenkaku Tower<span class="cn">新世界・通天閣</span></div><div class="pcost">Tower ¥900 · RM27</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 2 min walk from hotel</span><span class="eta-pill">⏱ 1hr stroll</span></div>
+        <div class="hl"><span class="hi">⭐</span>Osaka's retro 1950s entertainment district — neon signs, kushikatsu restaurants on every corner, old-school arcades. The neighbourhood has barely changed since the Showa era. Your hotel is right in the middle of it.</div>
+        <div class="pdesc">Tsutenkaku Tower modelled on the Eiffel Tower. The tower is optional — the street-level energy of Shinsekai is the real experience. Great first night in Osaka.</div>
+      </div>
+    </div>
+
+    <div class="sec ml">🍢 Dinner</div>
+    <div class="food-wrap mw"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Takoyaki_in_Osaka.jpg" alt="Takoyaki · 蛸焼き" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#c05010,#8a2800);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🐙</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Takoyaki · 蛸焼き</span></div><div style="margin:0"><div class="meal"><div class="mi">🍢</div><div><div class="mn">Kushikatsu in Shinsekai · 串カツ新世界<span class="mc">RM47–60</span></div><div class="md">Fried skewers — pork, prawn, vegetables, cheese. Ganso Kushikatsu Daruma 元祖串かつだるま is right next to the hotel. ⚠️ Golden rule: No double-dipping the sauce!</div></div></div></div></div>
+
+    <div class="sec on">♨️ Night Onsen</div>
+    <div class="place on-card">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/SpaWorld_Osaka_Japan.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>♨️</span><span style="font-size:12px;color:#f0c8ff;font-family:sans-serif;font-weight:600">Spaworld · スパワールド</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Spaworld<span class="cn">スパワールド</span></div><div class="pcost">¥1,600 · RM48</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 5 min walk from hotel</span><span class="eta-pill">⏱ 1.5–2hrs</span></div>
+        <div class="hl"><span class="hi">♨️</span>Osaka's famous mega-onsen resort with European and Asian themed bath floors — Roman baths, Greek columns, Finnish sauna, Turkish steam. Open until midnight. Perfect recovery after a full day of sightseeing and travel.</div>
+        <div class="pdesc">Men and women rotate between the European and Asian floor monthly. Towel rental available. Indoor pool also available. Well worth it after travelling from Kyoto.</div>
+      </div>
+    </div>
+
+    <div class="hnight"><div class="hni">🏨</div><div><div class="hnt">Night 4 · OneFive Osaka Shinsekai</div><div class="hnd">200m from 通天閣 Tsutenkaku. Spaworld 5 min walk. Nara tomorrow — start reasonably early!</div></div></div>
+  </div>
+</div>
+
+<!-- DAY 5 -->
+<div class="day o">
+  <div class="dh" onclick="tog(this)">
+    <div class="dbadge bo">17 May<br>Sun · Day 5</div>
+    <div class="dtw"><div class="dt">Nara Day Trip 奈良 🦌 <span class="must-tag">MUST</span></div><div class="ds">Deer park · Giant Buddha · Ancient shrine · Back to Osaka</div></div>
+    <div class="da">▼</div>
+  </div>
+  <div class="db">
+
+    <div class="depart">
+      <div class="di">🦌</div>
+      <div>
+        <div class="dt2">Depart hotel 8:30am</div>
+        <div class="dd">Nara is best in the morning when deer are most active and the park is peaceful. 40 min train from Namba — easy day trip.</div>
+      </div>
+    </div>
+
+    <div class="sec tr">🚆 Transport · Hotel → Nara</div>
+    <div class="train"><div class="ti">🚇</div><div class="tt"><strong>動物園前駅 Dobutsuenmae → 難波駅 Namba</strong><span class="pill pt">Osaka Metro 御堂筋線 Midosuji Line</span><span class="pill pc">~5 min</span><span class="pill pw">¥190 · RM6</span></div></div>
+    <div class="train"><div class="ti">🚆</div><div class="tt"><strong>大阪難波駅 Osaka-Namba → 近鉄奈良駅 Kintetsu Nara Station</strong><span class="pill pt">近鉄奈良線 Kintetsu Nara Line (Limited Express)</span><span class="pill pc">~40 min</span><span class="pill pw">¥760 · RM23</span><br>Take the Limited Express 特急 for fastest journey. Walk 5 min from station to 奈良公園 Nara Park.</div></div>
+
+    <div class="sec">🦌 Morning in Nara 奈良</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Deer_at_Nara.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🦌</span><span style="font-size:12px;color:#d0f0b0;font-family:sans-serif;font-weight:600">Nara Park · 奈良公園 · Free-roaming deer</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Nara Park<span class="cn">奈良公園・奈良公园</span></div><div class="pcost">Park Free · Crackers ¥200 · RM6</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 5 min from 近鉄奈良駅 Kintetsu Nara Station</span><span class="eta-pill">⏱ 1hr exploring</span></div>
+        <div class="hl"><span class="hi">⭐</span>Over 1,000 wild deer roam completely free — they bow to ask for shika senbei crackers 鹿せんべい. Watching a deer bow then immediately try to eat your bag is the most memorable moment of the entire trip.</div>
+        <div class="pdesc">Buy crackers from vendors at the park entrance. Don't hold them high — you'll be surrounded in seconds! Mornings are the best time; deer are active and the park isn't crowded yet.</div>
+      </div>
+    </div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Great_Buddha_hall_Todaiji.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🏛</span><span style="font-size:12px;color:#f0e0b8;font-family:sans-serif;font-weight:600">Todai-ji Temple · 東大寺 · Giant Buddha</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Todai-ji Temple<span class="cn">東大寺・东大寺</span></div><div class="pcost">¥600 · RM18</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 15 min walk through 奈良公園 Nara Park from station</span><span class="eta-pill">⏱ 1hr</span></div>
+        <div class="hl"><span class="hi">⭐</span>World's largest bronze Buddha 大仏 at 15m tall, housed inside the world's largest wooden hall. The scale when you walk through the Nandaimon gate is genuinely jaw-dropping — nothing prepares you for the size.</div>
+        <div class="pdesc">The two massive guardian statues at the Nandaimon gate are also incredible. Inside, look for the pillar with a hole the size of the Buddha's nostril — passing through is said to grant enlightenment!</div>
+      </div>
+    </div>
+
+    <div class="sec sn">🦌 Nara snack</div>
+    <div class="food-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Yakiniku_001.jpg" alt="Wagyu Yakiniku · 弘焼肉 和牛" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#8a1010,#5a0000);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🥩</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Wagyu Yakiniku · 弘焼肉 和牛</span></div><div style="margin:0"><div class="snack"><div class="si">🦌</div><div><div class="sn2">Deer-shaped Manju · 鹿まんじゅう · 鹿形馒头<span class="sc">RM10–13</span></div><div class="sd">Adorable steamed buns shaped like deer — red bean or matcha filling. Sold near Todai-ji. Nara's most iconic edible souvenir.</div></div></div></div></div>
+
+    <div class="place opt">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Kasugataisha.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>⛩</span><span style="font-size:12px;color:#ffc0b0;font-family:sans-serif;font-weight:600">Kasuga Taisha Shrine · 春日大社</span></div>
+      <div class="pbody">
+        <div class="opt-tag">If you have energy</div>
+        <div class="ptop"><div class="pname">Kasuga Taisha Shrine<span class="cn">春日大社・春日大社</span></div><div class="pcost free">Free outer grounds</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 20 min walk east through Nara Park</span><span class="eta-pill">⏱ 45 min</span></div>
+        <div class="hl"><span class="hi">⭐</span>3,000 stone and bronze lanterns line the forested path to the vermillion shrine buildings. Deer wander freely through the sacred forest alongside you. Completely atmospheric.</div>
+        <div class="pdesc">UNESCO World Heritage. The forest walk there is as special as the shrine itself. Skip if tired — Nara Park + Todai-ji is already a complete and satisfying morning.</div>
+      </div>
+    </div>
+
+    <div class="sec ml">🍜 Lunch in Nara</div>
+    <div class="food-wrap mw"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Grilled_steak_01.jpg" alt="Oh My Steak · 道頓堀和牛" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#8a1010,#5a0000);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🥩</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Oh My Steak · 道頓堀和牛</span></div><div style="margin:0"><div class="meal"><div class="mi">🍱</div><div><div class="mn">Kakinoha-zushi · 柿の葉寿司 · 柿叶寿司<span class="mc">RM40–53</span></div><div class="md">Nara's local specialty — sushi wrapped and lightly preserved in persimmon leaves. A unique flavour you can only get here. Several restaurants near 近鉄奈良駅 Kintetsu Nara Station.</div></div></div></div></div>
+
+    <div class="sec tr">🚆 Transport · Nara → Osaka</div>
+    <div class="train"><div class="ti">🚆</div><div class="tt"><strong>近鉄奈良駅 Kintetsu Nara → 大阪難波駅 Osaka-Namba</strong><span class="pill pt">近鉄奈良線 Kintetsu Nara Line</span><span class="pill pc">~40 min</span><span class="pill pw">¥760 · RM23</span></div></div>
+
+    <div class="sec">🌆 Afternoon · Osaka</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Osaka_Castle_in_the_second_year_of_Reiwa.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🏯</span><span style="font-size:12px;color:#c0d8ff;font-family:sans-serif;font-weight:600">Osaka Castle · 大阪城</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Osaka Castle & Park<span class="cn">大阪城公園・大阪城公园</span></div><div class="pcost">Tower ¥600 · RM18</div></div>
+        <div class="eta"><span class="eta-pill transit">🚌 Smart route: JR Loop Line 大阪環状線 to 森ノ宮駅 Morinomiya · Exit 3-B · walk 2 min to fountain plaza → Castle Loop Bus 城内循环巴士 ¥400 · every 30 min</span><span class="eta-pill">⏱ 1hr</span></div>
+        <div class="hl"><span class="hi">🏯</span>Toyotomi Hideyoshi's iconic 16th-century castle surrounded by a double moat and massive stone walls. Take the loop bus — no need to walk yourself to exhaustion on a day you've already done Nara!</div>
+        <div class="pdesc">History museum inside the tower. The moat and parkland are beautiful in May. Tower entry optional — the exterior and grounds are very satisfying on their own.</div>
+      </div>
+    </div>
+
+    <div class="sec">🌃 Evening · Dotonbori 道頓堀</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Namba_Yasaka_Jinja_%28Osaka%29_front.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🦁</span><span style="font-size:12px;color:#ffc0b0;font-family:sans-serif;font-weight:600">Namba Yasaka Shrine · 難波八坂神社</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Namba Yasaka Shrine<span class="cn">難波八坂神社・难波八坂神社</span></div><div class="pcost free">Free</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 10 min walk from 難波駅 Namba Station</span><span class="eta-pill">⏱ 20 min</span></div>
+        <div class="hl"><span class="hi">📸</span>The main hall is built to look like an enormous roaring lion head — the quirkiest and most unique photo spot in Osaka. Completely unexpected and unmissable.</div>
+        <div class="pdesc">Free, quick, and produces some of the most unusual photos of your trip. 5 min from Dotonbori area.</div>
+      </div>
+    </div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Dotonbori_Osaka_Nov_2014_002.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🌉</span><span style="font-size:12px;color:#b0c0ff;font-family:sans-serif;font-weight:600">Dotonbori · 道頓堀 · Glico 固力果</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Dotonbori<span class="cn">道頓堀・道顿堀</span></div><div class="pcost free">Free</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 5 min from 难波八坂神社 Namba Yasaka Shrine</span><span class="eta-pill">⏱ 30–45 min stroll</span></div>
+        <div class="hl"><span class="hi">⭐</span>Osaka's neon-lit canal district — the 固力果 Glico Running Man sign has been an Osaka icon since 1935. The energy here on a Sunday night is electric.</div>
+        <div class="pdesc">Walk both sides of the canal. Ebisubashi Bridge is the best spot for the Glico photo. Try takoyaki from a street stall while walking.</div>
+      </div>
+    </div>
+
+    <div class="sec sn">🐙 Street snack</div>
+    <div class="food-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Hanami_dango.jpg" alt="Mitarashi Dango · 御手洗団子" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#c07020,#8a3800);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🍡</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Mitarashi Dango · 御手洗団子</span></div><div style="margin:0"><div class="snack"><div class="si">🐙</div><div><div class="sn2">Takoyaki · 蛸焼き<span class="sc">RM17–23</span></div><div class="sd">8 piping hot octopus balls, bonito flakes dancing on top, sweet sauce. The essential Osaka street food experience. Eat standing on the street like a local.</div></div></div></div></div>
+
+    <div class="sec ml">🍜 Dinner</div>
+    <div class="food-wrap mw"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Kuromon_Market_Osaka.jpg" alt="Kuromon Market · 黒門市場" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#b02020,#780000);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🦪</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Kuromon Market · 黒門市場</span></div><div style="margin:0"><div class="meal"><div class="mi">🥩</div><div><div class="mn">Oh My Steak · 道頓堀 Dotonbori 道顿堀<span class="mc">RM80–120</span></div><div class="md">Highly rated wagyu steak spot right in the Dotonbori area. Well-marbled, great value for the location. Book ahead or check waiting time on arrival.</div></div></div></div></div>
+
+    <div class="hnight"><div class="hni">🏨</div><div><div class="hnt">Night 5 · OneFive Osaka Shinsekai</div><div class="hnd">Last big sightseeing day tomorrow — Harukas 300 at night is the highlight. Don't stay out too late tonight!</div></div></div>
+  </div>
+</div>
+
+<!-- DAY 6 -->
+<div class="day o">
+  <div class="dh" onclick="tog(this)">
+    <div class="dbadge bo">18 May<br>Mon · Day 6</div>
+    <div class="dtw"><div class="dt">Osaka Full Day + Harukas 300 <span class="must-tag">MUST</span></div><div class="ds">Market · shopping · river cruise · Japan's tallest night view</div></div>
+    <div class="da">▼</div>
+  </div>
+  <div class="db">
+
+    <div class="depart">
+      <div class="di">🌇</div>
+      <div>
+        <div class="dt2">Depart hotel 9:00am</div>
+        <div class="dd">More relaxed start — Kuromon Market opens 9am. Full day ending with Harukas 300 after 6pm. Pack light tonight — early departure tomorrow!</div>
+      </div>
+    </div>
+
+    <div class="sec ml">🍳 Breakfast</div>
+    <div class="food-wrap mw"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Egg_tart.jpg" alt="Pablo Cheese Tart · パブロ" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#c8920a,#8a5000);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🧀</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Pablo Cheese Tart · パブロ</span></div><div style="margin:0"><div class="meal"><div class="mi">🦪</div><div><div class="mn">Kuromon Market · 黒門市場 · 黑门市场<span class="mc">RM40–47</span></div><div class="md">Osaka's 170-year-old fresh market — fresh oysters, tamagoyaki, grilled scallops, fruit skewers. Eat as you walk. Open from 9am. 10 min walk from hotel or short subway ride.</div></div></div></div></div>
+
+    <div class="sec sn">🧀 Mid-morning snack</div>
+    <div class="food-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Matcha-ice-cream.jpg" alt="Matcha Warabi Mochi · 抹茶蕨餅" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#3a7a3a,#1a5020);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🍵</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Matcha Warabi Mochi · 抹茶蕨餅</span></div><div style="margin:0"><div class="snack"><div class="si">🧀</div><div><div class="sn2">Pablo Cheese Tart · パブロ 芝士挞<span class="sc">RM17–23</span></div><div class="sd">Osaka-born half-baked cheese tart — slightly molten in the centre, golden crisp outside. Original shop near 心斎橋 Shinsaibashi. Queue moves fast.</div></div></div></div></div>
+
+    <div class="sec tr">🚆 Transport · Hotel → Shinsaibashi</div>
+    <div class="train"><div class="ti">🚇</div><div class="tt"><strong>動物園前駅 Dobutsuenmae → 心斎橋駅 Shinsaibashi Station</strong><span class="pill pt">Osaka Metro 御堂筋線 Midosuji Line</span><span class="pill pc">~10 min</span><span class="pill pw">¥240 · RM8</span></div></div>
+
+    <div class="sec">🛍 Midday · Shopping</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Shinsaibashisuji_Osaka_Japan.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🛍</span><span style="font-size:12px;color:#b0c8ff;font-family:sans-serif;font-weight:600">Shinsaibashi · 心斎橋 · Amerikamura</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Shinsaibashi & Amerikamura<span class="cn">心斎橋・アメリカ村 / 心斋桥・美国村</span></div><div class="pcost free">Free to browse</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 1 min from 心斎橋駅 Shinsaibashi Station</span><span class="eta-pill">⏱ 1.5–2hrs browsing</span></div>
+        <div class="hl"><span class="hi">🛍</span>Shinsaibashi: Osaka's 600m covered shopping arcade — fashion, cosmetics, Don Quijote 唐吉诃德, souvenirs. Amerikamura: Osaka's hippest youth district with street art, vintage stores and indie cafés — 10 min walk west.</div>
+        <div class="pdesc">Don Quijote is the best single stop for pharmacy items — Keana Rice Pack, throat spray, Yakult Y1000, snacks. Open until midnight. Buy airport items here to avoid rush on departure day.</div>
+      </div>
+    </div>
+
+    <div class="sec ml">🍳 Lunch</div>
+    <div class="food-wrap mw"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Okonomiyaki_001.jpg" alt="Okonomiyaki · お好み焼き" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#c05010,#8a2800);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🥞</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Okonomiyaki · お好み焼き</span></div><div style="margin:0"><div class="meal"><div class="mi">🥞</div><div><div class="mn">Okonomiyaki · お好み焼き · 大阪烧<span class="mc">RM40–53</span></div><div class="md">Osaka-style savoury pancake with cabbage, pork, prawn and sweet sauce. Many restaurants around Namba let you cook it yourself on a teppan at your table. Uniquely Osaka.</div></div></div></div></div>
+
+    <div class="sec sn">🍦 Afternoon snack</div>
+    <div class="food-wrap"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Hanamikoji_dori_evening.jpg" alt="Pontocho Alley · 先斗町" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#8a1010,#5a0000);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🏮</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Pontocho Alley · 先斗町</span></div><div style="margin:0"><div class="snack"><div class="si">🍦</div><div><div class="sn2">Cremia Soft Serve · クレミア 北海道软冰淇淋<span class="sc">RM17–20</span></div><div class="sd">Rich Hokkaido milk soft serve in a cone near 道頓堀 Dotonbori. Dense and creamy — one of Japan's most photographed ice creams.</div></div></div></div></div>
+
+    <div class="sec">🌊 Late Afternoon</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Dotonbori_boat_2012.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🚢</span><span style="font-size:12px;color:#b0d0ff;font-family:sans-serif;font-weight:600">Tombori River Cruise · とんぼりリバークルーズ</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Tombori River Cruise<span class="cn">とんぼりリバークルーズ・道顿堀游船</span></div><div class="pcost">¥1,000 · RM30</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 5 min walk to Dotonbori Riverwalk pier from 心斎橋</span><span class="eta-pill">⏱ 20 min cruise</span></div>
+        <div class="hl"><span class="hi">📸</span>20-minute cruise along the neon-lit 道頓堀 Dotonbori canal — the giant billboards, Glico sign and restaurant facades look completely magical from water level. Best done just after sunset.</div>
+        <div class="pdesc">No booking needed — buy at the pier. Runs frequently in the evenings. Bring a jacket if breezy. Great perspective for canal photos you can't get any other way.</div>
+      </div>
+    </div>
+
+    <div class="sec tr">🚆 Transport · Dotonbori → Harukas 300</div>
+    <div class="train"><div class="ti">🚇</div><div class="tt"><strong>難波駅 Namba → 天王寺駅 Tennoji Station</strong><span class="pill pt">Osaka Metro 御堂筋線 Midosuji Line</span><span class="pill pc">~8 min</span><span class="pill pw">¥240 · RM8</span><br>あべのハルカス Abeno Harukas is connected directly to 天王寺駅 Tennoji Station. Go after 6pm.</div></div>
+
+    <div class="sec">🌃 Evening · The Big Finish</div>
+
+    <div class="place">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Abeno_Harukas_201404.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🏙</span><span style="font-size:12px;color:#a0b0e8;font-family:sans-serif;font-weight:600">Harukas 300 · あべのハルカス300 · 360° Night View</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Harukas 300<span class="cn">あべのハルカス300・阿倍野Harukas300</span></div><div class="pcost must">¥1,800 · RM60 · MUST</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 Direct from 天王寺駅 Tennoji Station · connected walkway</span><span class="eta-pill">⏱ 1–1.5hrs</span></div>
+        <div class="hl"><span class="hi">⭐</span>360° panoramic night view from Japan's tallest skyscraper at 300m. On a clear night the entire Osaka-Kobe-Kyoto urban grid glows as far as the eye can see. One of the best city night views in Asia.</div>
+        <div class="pdesc">Go after 6pm — ideally 7–8pm for full darkness. Floors 58–60 of Abeno Harukas tower. Outdoor terrace sections, glass floor areas. Buy tickets at the counter on arrival. From hotel, walk 15 min or take subway 2 stops.</div>
+      </div>
+    </div>
+
+    <div class="sec ml">🍜 Final dinner in Japan</div>
+    <div class="food-wrap mw"><img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Soft_serve_ice_cream.jpg" alt="Cremia Soft Serve · クレミア" style="width:100%;height:100px;object-fit:cover;display:block;border-radius:8px 8px 0 0" loading="lazy"><div style="background:linear-gradient(135deg,#d8c090,#a8905a);height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:8px 8px 0 0"><span style="font-size:32px">🍦</span><span style="font-size:11px;color:rgba(255,255,255,0.9);font-family:sans-serif;font-weight:600">Cremia Soft Serve · クレミア</span></div><div style="margin:0"><div class="meal"><div class="mi">🍜</div><div><div class="mn">Osaka Yoshitake 吉武 · Wagyu Shabu Shabu 和牛涮涮锅<span class="mc">RM150–200</span></div><div class="md">Premium wagyu shabu shabu — thinly sliced beef swirled in delicate dashi broth, the most refined way to eat wagyu. Reserve ahead. Confirm address on Google Maps. Your last proper sit-down meal in Japan — make it count.</div></div></div></div></div>
+
+    <div class="sec on">♨️ Final Night Onsen</div>
+    <div class="place on-card">
+      
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Rotemburo-1.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>♨️</span><span style="font-size:12px;color:#f0c0ff;font-family:sans-serif;font-weight:600">Final Night Onsen · Spaworld / 空庭温泉</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Spaworld or Sora Niwa Onsen<span class="cn">スパワールド · 空庭温泉</span></div><div class="pcost">¥1,600–2,200 · RM48–66</div></div>
+        <div class="eta"><span class="eta-pill walk">🚶 Spaworld: 5 min from hotel</span><span class="eta-pill transit">🚆 Sora Niwa: 20 min by train to 大阪ベイエリア Osaka Bay area</span></div>
+        <div class="hl"><span class="hi">♨️</span>Spaworld is the easy choice — walking distance, themed baths, open late. Sora Niwa Onsen is more refined with beautiful garden-style outdoor baths if you want something special for your last night.</div>
+        <div class="pdesc">Either is a perfect send-off. Pack your bags before going — early departure tomorrow. Spaworld open until midnight.</div>
+      </div>
+    </div>
+
+    <div class="hnight"><div class="hni">🏨</div><div><div class="hnt">Night 6 · OneFive Osaka Shinsekai · Last Night!</div><div class="hnd">⚠️ Pack all bags tonight. Leave hotel 8am sharp tomorrow. Flight 11:05am — cannot be late!</div></div></div>
+  </div>
+</div>
+
+<!-- DAY 7 -->
+<div class="day s">
+  <div class="dh" onclick="tog(this)">
+    <div class="dbadge bd">19 May<br>Tue · Fly</div>
+    <div class="dtw"><div class="dt">Depart KIX 11:05am ✈️</div><div class="ds">Last morning · airport shopping · tax refund · fly home</div></div>
+    <div class="da">▼</div>
+  </div>
+  <div class="db">
+
+    <div class="depart">
+      <div class="di">⚠️</div>
+      <div>
+        <div class="dt2">Depart hotel 8:00am SHARP</div>
+        <div class="dd">Flight 11:05 — need to be at KIX by 9am. Haruka from Tennoji is ~45 min. Leave hotel 8am latest. No exceptions!</div>
+      </div>
+    </div>
+
+    <div class="sec tr">🚆 Transport · Hotel → KIX</div>
+    <div class="train"><div class="ti">🚶</div><div class="tt"><strong>Hotel → 新今宮駅 JR Shin-Imamiya Station 新今宫站</strong><span class="pill pc">~3 min walk</span></div></div>
+    <div class="train"><div class="ti">🚆</div><div class="tt"><strong>新今宮駅 Shin-Imamiya → 天王寺駅 Tennoji</strong><span class="pill pt">JR大阪環状線 Osaka Loop Line</span><span class="pill pc">~3 min</span><span class="pill pw">¥170 · RM5</span></div></div>
+    <div class="train"><div class="ti">🚄</div><div class="tt"><strong>天王寺駅 Tennoji → 関西空港 KIX</strong><span class="pill pt">JR特急はるか JR Haruka Express</span><span class="pill pc">~45 min</span><span class="pill pw">¥1,800 · RM54</span><br>Departs approximately every 30 min. Aim to be at KIX by 9am — gives 2 hours before departure.</div></div>
+
+    <div class="sec">🛍 Airport · Last-minute shopping</div>
+    <div class="place">
+      
+      <div class="pph" style="background:linear-gradient(135deg,#2a4a6a,#0a1a3a)"><span>✈️</span><span style="font-size:12px;color:#b0d0ff;font-family:sans-serif;font-weight:600">KIX Airport Departures · 関西空港</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">KIX Departures Shopping</div><div class="pcost big">Budget RM130–180</div></div>
+        <div class="hl"><span class="hi">💡</span>No need to panic-buy in the city — KIX departures hall has everything in one place after security. One stop, no rushing.</div>
+        <div class="pdesc">
+          Shopping list:<br>
+          · Keana Nadeshiko Rice Pack · 縮毛パック · Reduce pores<br>
+          · Sakura throat spray · 喉咙喷雾<br>
+          · Vitamin C supplements<br>
+          · 濑户内柠檬脆饼 Setouchi lemon crackers<br>
+          · Pistachio cocoa balls · Yakult Y1000 · Tearth<br>
+          · Nama yatsuhashi 生八ツ橋 if not bought in Kyoto
+        </div>
+      </div>
+    </div>
+
+    <div class="place">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Kansai_International_Airport_terminal_1.jpg" alt="" style="width:100%;height:160px;object-fit:cover;display:block" onerror="this.style.background='#c0b8a8'"><div class="pph" style="display:none"><span>🧾</span><span style="font-size:12px;color:#c8f0c8;font-family:sans-serif;font-weight:600">Tax Refund · 消費税還付</span></div>
+      <div class="pbody">
+        <div class="ptop"><div class="pname">Tax Refund Counter · 消費税還付</div><div class="pcost">Claim 8–10% back</div></div>
+        <div class="hl"><span class="hi">💰</span>Claim Japanese consumption tax refund before going through security. Keep all tax-free purchase receipts from the entire trip. On RM500 purchases = ~RM40–50 back.</div>
+        <div class="pdesc">Counter is before the security gates. Bring passport and all receipts. Can queue — allow 20 min. Worth doing.</div>
+      </div>
+    </div>
+
+    <div class="train"><div class="ti">⚠️</div><div class="tt"><strong>Power bank reminder 充电宝提醒</strong><br>Must be in carry-on luggage only. Max 160Wh / 43,000mAh. Max 2 pieces per person. Remove from checked bags before check-in.</div></div>
+    <div class="train"><div class="ti">📱</div><div class="tt"><strong>Useful apps 实用应用</strong><br>· Jihanpi 自贩机アプリ — scan vending machines for free drinks!<br>· Navitime — best for train navigation in Japan<br>· Tabelog — restaurant ratings<br>· Flush — find public toilets</div></div>
+
+  </div>
+</div>
+
+</div><!-- end itinerary panel -->
+
+<!-- ============ BUDGET PANEL ============ -->
+<div class="panel" id="budget">
+<div class="bwrap">
+<div class="bcard">
+  <div class="bhead"><h2>Full Trip Budget</h2><p>Per person · Sharing room · All costs in MYR · ¥33 ≈ RM1</p></div>
+
+  <div class="bcat">🏨 Accommodation (booked · per room)</div>
+  <div class="brow"><div class="bd2">13–16 May</div><div class="bi">Rakuten STAY URBAN Kyoto Shijo Omiya · 3 nights</div><div class="bm bl">RM653.43</div></div>
+  <div class="brow"><div class="bd2">16–19 May</div><div class="bi">OneFive Osaka Shinsekai · 3 nights</div><div class="bm bl">RM744.43</div></div>
+  <div class="bsub"><span>Hotels total (per room)</span><span>RM1,397.86</span></div>
+  <div class="brow"><div class="bd2"></div><div class="bi" style="color:#999;font-size:11px">Per person if sharing (÷2)</div><div class="bm bl">RM698.93</div></div>
+
+  <div class="bcat">🚃 Transport (per person)</div>
+  <div class="brow"><div class="bd2">Day 1</div><div class="bi">JR Haruka KIX → 京都駅 Kyoto Station</div><div class="bm bg">RM54</div></div>
+  <div class="brow"><div class="bd2">Day 1</div><div class="bi">Hankyu 京都駅 → 大宮駅 Omiya + bus to Gojo-zaka</div><div class="bm bg">RM14</div></div>
+  <div class="brow"><div class="bd2">Day 2</div><div class="bi">Hankyu 大宮駅 Omiya → 嵐山駅 Arashiyama (return)</div><div class="bm bg">RM22</div></div>
+  <div class="brow"><div class="bd2">Day 2</div><div class="bi">Sagano Romantic Train 嵯峨野トロッコ</div><div class="bm bg">RM27</div></div>
+  <div class="brow"><div class="bd2">Day 3</div><div class="bi">City buses · Bus 12/59, Bus 50 (full day)</div><div class="bm bg">RM21</div></div>
+  <div class="brow"><div class="bd2">Day 4</div><div class="bi">Luggage storage · 京都駅 Kyoto Station coin locker</div><div class="bm bg">RM18</div></div>
+  <div class="brow"><div class="bd2">Day 4</div><div class="bi">JR 京都駅 Kyoto → 稲荷駅 JR Inari + 稲荷 → 新今宮駅 Shin-Imamiya</div><div class="bm bg">RM18</div></div>
+  <div class="brow"><div class="bd2">Day 5</div><div class="bi">Osaka Metro + Kintetsu Nara return</div><div class="bm bg">RM52</div></div>
+  <div class="brow"><div class="bd2">Day 5</div><div class="bi">JR Loop Line → 森ノ宮 Morinomiya + Castle Loop Bus</div><div class="bm bg">RM21</div></div>
+  <div class="brow"><div class="bd2">Day 6</div><div class="bi">Osaka Metro (Shinsaibashi + Tennoji trips)</div><div class="bm bg">RM16</div></div>
+  <div class="brow"><div class="bd2">Day 7</div><div class="bi">JR Haruka 天王寺 Tennoji → KIX</div><div class="bm bg">RM54</div></div>
+  <div class="brow"><div class="bd2">All days</div><div class="bi">Suica IC card top-up · miscellaneous local transport</div><div class="bm bg">RM50</div></div>
+  <div class="bsub"><span>Transport subtotal</span><span>RM367</span></div>
+
+  <div class="bcat">🏛 Attractions + Onsen</div>
+  <div class="brow"><div class="bd2">Day 1</div><div class="bi">Nijo Castle 二条城</div><div class="bm bg">RM24</div></div>
+  <div class="brow"><div class="bd2">Day 2</div><div class="bi">Tenryu-ji Garden 天龍寺</div><div class="bm bg">RM15</div></div>
+  <div class="brow"><div class="bd2">Day 2</div><div class="bi">Tenzan-no-yu Onsen 天山の湯 ♨️</div><div class="bm bg">RM30</div></div>
+  <div class="brow"><div class="bd2">Day 3</div><div class="bi">Kinkaku-ji 金閣寺</div><div class="bm bg">RM15</div></div>
+  <div class="brow"><div class="bd2">Day 3</div><div class="bi">Ryoan-ji 龍安寺</div><div class="bm bg">RM18</div></div>
+  <div class="brow"><div class="bd2">Day 3</div><div class="bi">Kimono rental 着物レンタル · Higashiyama</div><div class="bm br">RM124</div></div>
+  <div class="brow"><div class="bd2">Day 3</div><div class="bi">Kiyomizudera 清水寺</div><div class="bm bg">RM13</div></div>
+  <div class="brow"><div class="bd2">Day 4</div><div class="bi">Spaworld スパワールド ♨️</div><div class="bm bg">RM48</div></div>
+  <div class="brow"><div class="bd2">Day 4</div><div class="bi">Tsutenkaku Tower 通天閣 (optional)</div><div class="bm bx">RM27</div></div>
+  <div class="brow"><div class="bd2">Day 5</div><div class="bi">Todai-ji 東大寺</div><div class="bm bg">RM18</div></div>
+  <div class="brow"><div class="bd2">Day 5</div><div class="bi">Osaka Castle Tower 大阪城 + Loop Bus</div><div class="bm bg">RM31</div></div>
+  <div class="brow"><div class="bd2">Day 6</div><div class="bi">Tombori River Cruise とんぼりリバークルーズ</div><div class="bm bg">RM30</div></div>
+  <div class="brow"><div class="bd2">Day 6</div><div class="bi">Harukas 300 あべのハルカス ★ MUST</div><div class="bm br">RM60</div></div>
+  <div class="brow"><div class="bd2">Day 6</div><div class="bi">Spaworld / Sora Niwa Onsen ♨️</div><div class="bm bg">RM57</div></div>
+  <div class="bsub"><span>Attractions + Onsen subtotal</span><span>RM510</span></div>
+
+  <div class="bcat">🍽 Meals (per person)</div>
+  <div class="brow"><div class="bd2">Day 1</div><div class="bi">Dinner · A5 Wagyu Sukiyaki 吉建天草 / Panga</div><div class="bm br">RM150</div></div>
+  <div class="brow"><div class="bd2">Day 2</div><div class="bi">Lunch · ExCafe 嵐山エクスフェ</div><div class="bm bg">RM35</div></div>
+  <div class="brow"><div class="bd2">Day 2</div><div class="bi">Dinner · Wagyu Yakiniku 弘焼肉 和牛</div><div class="bm br">RM150</div></div>
+  <div class="brow"><div class="bd2">Day 3</div><div class="bi">Dinner · Pontocho Alley 先斗町</div><div class="bm bg">RM63</div></div>
+  <div class="brow"><div class="bd2">Day 4</div><div class="bi">Lunch · Okutan 奥丹 tofu kaiseki</div><div class="bm br">RM97</div></div>
+  <div class="brow"><div class="bd2">Day 4</div><div class="bi">Dinner · Kushikatsu 新世界</div><div class="bm bg">RM53</div></div>
+  <div class="brow"><div class="bd2">Day 5</div><div class="bi">Lunch · Kakinoha-zushi 柿の葉寿司 Nara</div><div class="bm bg">RM47</div></div>
+  <div class="brow"><div class="bd2">Day 5</div><div class="bi">Dinner · Oh My Steak 道頓堀</div><div class="bm br">RM100</div></div>
+  <div class="brow"><div class="bd2">Day 6</div><div class="bi">Breakfast · Kuromon Market 黒門市場</div><div class="bm bg">RM43</div></div>
+  <div class="brow"><div class="bd2">Day 6</div><div class="bi">Lunch · Okonomiyaki 難波</div><div class="bm bg">RM47</div></div>
+  <div class="brow"><div class="bd2">Day 6</div><div class="bi">Dinner · Yoshitake Shabu Shabu 吉武</div><div class="bm br">RM175</div></div>
+  <div class="bsub"><span>Meals subtotal</span><span>RM960</span></div>
+
+  <div class="bcat">🍡 Snacks (per person)</div>
+  <div class="brow"><div class="bd2">Day 1</div><div class="bi">Matcha warabi mochi · 抹茶蕨餅 · Sannenzaka</div><div class="bm bg">RM28</div></div>
+  <div class="brow"><div class="bd2">Day 2</div><div class="bi">Matcha soft serve + Nama yatsuhashi 生八ツ橋</div><div class="bm bg">RM23</div></div>
+  <div class="brow"><div class="bd2">Day 3</div><div class="bi">Mitarashi dango 御手洗団子</div><div class="bm bg">RM10</div></div>
+  <div class="brow"><div class="bd2">Day 4</div><div class="bi">Inari sushi 稲荷寿司 · Fushimi Inari gate</div><div class="bm bg">RM13</div></div>
+  <div class="brow"><div class="bd2">Day 5</div><div class="bi">Deer manju 鹿まんじゅう + Takoyaki 蛸焼き</div><div class="bm bg">RM30</div></div>
+  <div class="brow"><div class="bd2">Day 6</div><div class="bi">Pablo cheese tart パブロ + Cremia クレミア</div><div class="bm bg">RM37</div></div>
+  <div class="bsub"><span>Snacks subtotal</span><span>RM141</span></div>
+
+  <div class="bcat">🛍 Shopping + Miscellaneous</div>
+  <div class="brow"><div class="bd2">Day 7</div><div class="bi">KIX airport pharmacy + snacks (Keana, throat spray, Yakult Y1000, crackers etc)</div><div class="bm br">RM155</div></div>
+  <div class="brow"><div class="bd2">All</div><div class="bi">Konbini drinks, water, daily incidentals</div><div class="bm bg">RM100</div></div>
+  <div class="bsub"><span>Shopping subtotal</span><span>RM255</span></div>
+
+  <div class="grand">
+    <div>
+      <div class="gl">Grand Total · per person (sharing room)</div>
+      <div style="font-size:11px;color:#888;margin-top:3px">Hotels RM699 · Transport RM367 · Attractions RM510 · Meals RM960 · Snacks RM141 · Shopping RM255</div>
+    </div>
+    <div class="ga">RM2,932</div>
+  </div>
+  <div class="grand" style="background:#2a1a10;border-top:1px solid #3a2510">
+    <div><div class="gl">Solo traveller (single room)</div></div>
+    <div class="ga" style="font-size:18px">RM3,631</div>
+  </div>
+
+  <div class="bnote">
+    <strong>📝 Notes:</strong><br>
+    · Exchange rate: ¥33 ≈ RM1 · RM1 ≈ S$0.30. Check live rate before travel<br>
+    · Meals are your biggest cost (RM960) — 3 splurge dinners (wagyu sukiyaki, wagyu yakiniku, shabu shabu). Swap any one for a regular meal and save RM100–150<br>
+    · Tsutenkaku Tower (RM27) marked optional — hotel is next door so you can decide on the night<br>
+    · <strong>Free highlights:</strong> Bamboo Grove 竹林 · Fushimi Inari 伏見稲荷 · Aoi Matsuri 葵祭 · Nara Park 奈良公園 · Namba Yasaka 難波八坂 · Dotonbori 道頓堀 · Gion evening walk 祗園 · Sannenzaka walk<br>
+    · <strong>3 onsen:</strong> Tenzan-no-yu 天山の湯 (Day 2 · Arashiyama) · Spaworld (Day 4 · Osaka) · Spaworld / Sora Niwa (Day 6 · last night)
+  </div>
+</div>
+</div>
+</div><!-- end budget panel -->
+
+<script>
+function sw(id,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+function tog(h){
+  var b=h.nextElementSibling,a=h.querySelector('.da'),o=!b.classList.contains('open');
+  b.classList.toggle('open',o);a.classList.toggle('open',o);h.classList.toggle('open',o);
+}
+</script>
+</body>
+</html>
